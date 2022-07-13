@@ -1,0 +1,20 @@
+﻿<Window x:Class="DreamJournal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DreamJournal"
+        mc:Ignorable="d"
+        Title="Dream Journal" Height="600" Width="800" MinWidth="800" MinHeight="600" MaxWidth="800" MaxHeight="600" Background="#FF1A1A1A" Icon="/view-98-438879.png" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
+    <Grid>
+        <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Left" Margin="451,11,0,0" VerticalAlignment="Top" Width="135" Height="28" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}" Click="SaveBtn_Click"/>
+        <Label x:Name="TitleLabel" Content="Dream Journal" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+        <TextBox x:Name="MainTextBox" HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="Your story starts here.." VerticalAlignment="Top" Width="576" Height="507" Background="#FF1E1E1E" Foreground="#FF888888" GotKeyboardFocus="MainTextBox_GotKeyboardFocus" FontSize="14" AcceptsReturn="True"/>
+        <TextBox x:Name="LocationTextBox" HorizontalAlignment="Left" Margin="596,385,0,0" TextWrapping="Wrap" Text="[Optional] For example, Earth, Moon, Friends house, etc.." VerticalAlignment="Top" Width="179" Height="169" Background="#FF252525" Foreground="#FF888888" GotKeyboardFocus="LocationTextBox_GotKeyboardFocus" FontSize="14"/>
+        <Label Content="Locations:" HorizontalAlignment="Left" Margin="596,364,0,0" VerticalAlignment="Top" Padding="0,0,0,0" RenderTransformOrigin="0.936,1.444" Foreground="White"/>
+        <Calendar x:Name="MainCalendar" HorizontalAlignment="Left" Margin="596,7,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="MentionTextBox" HorizontalAlignment="Left" Margin="596,201,0,0" TextWrapping="Wrap" Text="[Optional] For example, NuMI, Michael76, Lydia, etc.." VerticalAlignment="Top" Width="179" Height="158" Background="#FF252525" Foreground="#FF888888" GotKeyboardFocus="MentionTextBox_GotKeyboardFocus" FontSize="14"/>
+        <Label x:Name="MentionLabel" Content="Mentions:" HorizontalAlignment="Left" Margin="596,180,0,0" VerticalAlignment="Top" Padding="0,0,0,0" RenderTransformOrigin="0.936,1.444" Foreground="White"/>
+
+    </Grid>
+</Window>
