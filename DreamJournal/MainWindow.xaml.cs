@@ -22,11 +22,19 @@ namespace DreamJournal
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool isLocationKnown = false;
+        bool isMentionSomeone = false;
         bool todayJournalExist;
         string baseDir = System.AppDomain.CurrentDomain.BaseDirectory;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void AddInfo(string text)
+        {
+            InfoTextBox.Text += Environment.NewLine + "> " + text;
+            Console.WriteLine(text);
         }
 
         private void MainTextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -42,6 +50,7 @@ namespace DreamJournal
         {
             if (MentionTextBox.Foreground != Brushes.White)
             {
+                isMentionSomeone = true;
                 MentionTextBox.Clear();
                 MentionTextBox.Foreground = Brushes.White;
             }
@@ -51,8 +60,18 @@ namespace DreamJournal
         {
             if (LocationTextBox.Foreground != Brushes.White)
             {
+                isLocationKnown = true;
                 LocationTextBox.Clear();
                 LocationTextBox.Foreground = Brushes.White;
+            }
+        }
+
+        private void TitleTextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (TitleTextBox.Foreground != Brushes.White)
+            {
+                TitleTextBox.Clear();
+                TitleTextBox.Foreground = Brushes.White;
             }
         }
 
@@ -61,31 +80,49 @@ namespace DreamJournal
             string fileName = (DateTime.Today.ToString()).Remove(10).Replace(' ','_').Replace('/','-') + ".txt";
             string filePath = baseDir + fileName;
 
+            string journal = "[" + DateTime.Now.ToString() + "]" + Environment.NewLine;
+
+            // Journal logical expression
+            journal += Environment.NewLine;
+            journal += TitleTextBox.Text;
+            journal += Environment.NewLine;
+
+            if (MentionTextBox.Text != "" && isMentionSomeone == true)
+            {
+                journal += Environment.NewLine;
+                journal += "Mention: " + MentionTextBox.Text;
+                journal += Environment.NewLine;
+            }
+            if(LocationTextBox.Text != "" && isLocationKnown == true)
+            {
+                journal += Environment.NewLine;
+                journal += "Location: " + LocationTextBox.Text;
+                journal += Environment.NewLine;
+            }
+            
+            journal += Environment.NewLine; 
+            journal += MainTextBox.Text;
+
+            // Saving journal to current base directory
             if(File.Exists(filePath))
             {
-                Console.WriteLine("Replacing to: " + filePath);
+                AddInfo("Replacing to: " + filePath);
                 todayJournalExist = true;                
-                File.WriteAllText(filePath, MainTextBox.Text);
+                File.WriteAllText(filePath, journal);
             }
             else
             {
-                Console.WriteLine("Saving to: " + filePath);
+                AddInfo("Saving to: " + filePath);
                 StreamWriter file = new StreamWriter(filePath, true);
 
-                foreach (object item in MainTextBox.Text)
+                foreach (object item in journal)
                 {
                     file.Write(item.ToString());
                 }
                 file.Close();
             }
-
-
-            
-
-            
-
-            
-            
         }
+
+        
     }
 }

@@ -7,14 +7,28 @@
         mc:Ignorable="d"
         Title="Dream Journal" Height="600" Width="800" MinWidth="800" MinHeight="600" MaxWidth="800" MaxHeight="600" Background="#FF1A1A1A" Icon="/view-98-438879.png" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
     <Grid>
-        <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Left" Margin="451,11,0,0" VerticalAlignment="Top" Width="135" Height="28" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}" Click="SaveBtn_Click"/>
-        <Label x:Name="TitleLabel" Content="Dream Journal" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
-        <TextBox x:Name="MainTextBox" HorizontalAlignment="Left" Margin="10,47,0,0" TextWrapping="Wrap" Text="Your story starts here.." VerticalAlignment="Top" Width="576" Height="507" Background="#FF1E1E1E" Foreground="#FF888888" GotKeyboardFocus="MainTextBox_GotKeyboardFocus" FontSize="14" AcceptsReturn="True"/>
-        <TextBox x:Name="LocationTextBox" HorizontalAlignment="Left" Margin="596,385,0,0" TextWrapping="Wrap" Text="[Optional] For example, Earth, Moon, Friends house, etc.." VerticalAlignment="Top" Width="179" Height="169" Background="#FF252525" Foreground="#FF888888" GotKeyboardFocus="LocationTextBox_GotKeyboardFocus" FontSize="14"/>
-        <Label Content="Locations:" HorizontalAlignment="Left" Margin="596,364,0,0" VerticalAlignment="Top" Padding="0,0,0,0" RenderTransformOrigin="0.936,1.444" Foreground="White"/>
-        <Calendar x:Name="MainCalendar" HorizontalAlignment="Left" Margin="596,7,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="MentionTextBox" HorizontalAlignment="Left" Margin="596,201,0,0" TextWrapping="Wrap" Text="[Optional] For example, NuMI, Michael76, Lydia, etc.." VerticalAlignment="Top" Width="179" Height="158" Background="#FF252525" Foreground="#FF888888" GotKeyboardFocus="MentionTextBox_GotKeyboardFocus" FontSize="14"/>
+        <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Left" Margin="490,9,0,0" VerticalAlignment="Top" Width="96" Height="28" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}" Click="SaveBtn_Click"/>
+        <Label x:Name="ProgramNameLabel" Content="Dream Journal" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18"/>
+        <TextBox x:Name="MainTextBox" HorizontalAlignment="Left" Margin="10,79,0,0" TextWrapping="Wrap" Text=" Your story starts here.." VerticalAlignment="Top" Width="576" Height="475" Background="#FF1E1E1E" Foreground="#FF888888" GotKeyboardFocus="MainTextBox_GotKeyboardFocus" FontSize="14" AcceptsReturn="True"/>
+        <TextBox x:Name="LocationTextBox" HorizontalAlignment="Left" Margin="596,280,0,0" TextWrapping="Wrap" Text="[Optional] For example, Earth, Moon, Friends house, etc.." VerticalAlignment="Top" Width="179" Height="53" Background="#FF252525" Foreground="#FF888888" GotKeyboardFocus="LocationTextBox_GotKeyboardFocus"/>
+        <Label Content="Locations:" HorizontalAlignment="Left" Margin="596,259,0,0" VerticalAlignment="Top" Padding="0,0,0,0" RenderTransformOrigin="0.936,1.444" Foreground="White"/>
+        <Calendar x:Name="MainCalendar" HorizontalAlignment="Left" Margin="596,7,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}">
+            <Calendar.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFC1C1C1"/>
+                    <GradientStop Color="#FFECF0F4" Offset="0.372"/>
+                    <GradientStop Color="#FFFCFCFD" Offset="0.733"/>
+                    <GradientStop Color="#FF828282" Offset="1"/>
+                </LinearGradientBrush>
+            </Calendar.Background>
+        </Calendar>
+        <TextBox x:Name="MentionTextBox" HorizontalAlignment="Left" Margin="596,201,0,0" TextWrapping="Wrap" Text="[Optional] For example, NuMI, Michael76, Lydia, etc.." VerticalAlignment="Top" Width="179" Height="52" Background="#FF252525" Foreground="#FF888888" GotKeyboardFocus="MentionTextBox_GotKeyboardFocus"/>
         <Label x:Name="MentionLabel" Content="Mentions:" HorizontalAlignment="Left" Margin="596,180,0,0" VerticalAlignment="Top" Padding="0,0,0,0" RenderTransformOrigin="0.936,1.444" Foreground="White"/>
+        <Button x:Name="LoadBtn" Content="Load" HorizontalAlignment="Left" Margin="490,10,0,0" VerticalAlignment="Top" Width="96" Height="28" Background="#FF4D4D4D" Foreground="White" BorderBrush="{x:Null}" Visibility="Hidden"/>
+        <TextBox x:Name="InfoTextBox" HorizontalAlignment="Left" Margin="596,359,0,0" TextWrapping="Wrap" Text="> Good Morning... having a nice dream?" VerticalAlignment="Top" Width="179" Height="195" Background="#FF252525" Foreground="White" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <Label x:Name="InfoLabel" Content="Info:" HorizontalAlignment="Left" Margin="596,338,0,0" VerticalAlignment="Top" Padding="0,0,0,0" RenderTransformOrigin="0.936,1.444" Foreground="White"/>
+        <TextBox x:Name="ModeTextBox" HorizontalAlignment="Left" Margin="147,15,0,0" TextWrapping="Wrap" Text="Writting new journal..." VerticalAlignment="Top" Width="229" Background="#FF252525" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="Black" TextAlignment="Center" IsReadOnly="True" Visibility="Hidden"/>
+        <TextBox x:Name="TitleTextBox" HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" Text=" What your dream about?" VerticalAlignment="Top" Width="576" Background="#FF1E1E1E" Foreground="#FF888888" GotKeyboardFocus="TitleTextBox_GotKeyboardFocus" FontSize="14" AcceptsReturn="True" Height="31" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>
